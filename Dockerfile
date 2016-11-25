@@ -3,7 +3,7 @@
 FROM python:3.3-alpine
 MAINTAINER Michał Jaskólski, <michal@jaskolski.online>
 
-RUN apk add --no-cache build-base libffi
+RUN apk add --no-cache build-base libffi-dev
 # Create directory to contains all Isso config + DB
 RUN mkdir -p /opt/isso
 
