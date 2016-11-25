@@ -3,12 +3,14 @@
 FROM python:3.3-alpine
 MAINTAINER Michał Jaskólski, <michal@jaskolski.online>
 
-RUN apk add --no-cache build-base libffi-dev
+RUN apk add --no-cache build-base libffi libffi-dev
 # Create directory to contains all Isso config + DB
 RUN mkdir -p /opt/isso
 
 # Install isso
 RUN pip install isso==0.9.10 gevent==1.1rc3 gunicorn
+
+RUN apk del --purge build-base libffi-dev
 
 # Add isso configuration
 ADD isso.conf /opt/isso/isso.conf
